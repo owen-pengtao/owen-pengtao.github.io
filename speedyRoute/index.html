@@ -36,13 +36,26 @@
       top: 10px;
       z-index: 999;
       font-size: 20px;
+      cursor: pointer;
     }
     #setting textarea{
       width: 80%;
       height: 400px;
+      padding: 10px;
     }
-
+    #setting button{
+      margin-top: 10px;
+    }
   </style>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCKlT6whocreZluuOPONyhzv8cpq3Zz7qU"></script>
   <script>
@@ -134,9 +147,10 @@
   </script>
 </head>
 <body ng-app="">
-  <a id="collapse" href="#" ng-click="collapse=!collapse">x</a>
+  <span id="collapse" ng-click="collapse=!collapse" ng-class="{'glyphicon-resize-full': collapse, 'glyphicon-resize-small': !collapse}" class="glyphicon"></span>
   <div id="setting" ng-class="{'collapse': collapse}">
     <h3>Your route:</h3>
+    <div class="row">
     <textarea id="routes">Mather Point, Rim Trail, Grand Canyon Village, Arizona
 Petrified Forest National Park, Arizona
 Saguaro National Park Visitor Center, North Kinney Road, Tucson, Arizona
@@ -185,8 +199,9 @@ The Robert J. Lagomarsino Visitor Center at Channel Islands National Park, 1901 
 Joshua Tree National Park, Twentynine Palms Highway, Twentynine Palms, California
 Furnace Creek Visitor Center Death Valley National Park, California
 Mather Point, Rim Trail, Grand Canyon Village, Arizona</textarea>
-    <div>
-      <button onclick="setRoutes()">Calculate Route</button>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-primary" onclick="setRoutes()">Calculate Route</button>
     </div>
   </div>
 <div id="map-canvas"></div>
